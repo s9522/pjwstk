@@ -6,14 +6,14 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pjatk.Pab.Books.DAL.Repositories.Base
+namespace Pjatk.Pab.Books.DAL.Repositories
 {
-    public class GenericRepository<T> : IRepository<T> where T : class
+    public class Repository<T> : IRepository<T> where T : class
     {
         internal DomainContext context;
         internal DbSet<T> dbSet;
 
-        public GenericRepository(DomainContext context)
+        public Repository(DomainContext context)
         {
             this.context = context;
             this.dbSet = context.Set<T>();

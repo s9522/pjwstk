@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pjatk.Pab.Books.DAL.Repositories.Base
+namespace Pjatk.Pab.Books.DAL.Repositories
 {
     public interface IRepository<T> where T : class
     {        

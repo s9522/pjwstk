@@ -39,10 +39,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Facades\BooksFacade.cs" />
+    <Compile Include="Facades\IBooks.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Facades\" />
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Pjatk.Pab.Books.DAL\Pjatk.Pab.Books.DAL.csproj">
+      <Project>{5de6ce9d-a583-4ed0-bcb8-621e2ade91c8}</Project>
+      <Name>Pjatk.Pab.Books.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pjatk.Pab.Books.Domain\Pjatk.Pab.Books.Domain.csproj">
+      <Project>{08cc4c75-7925-497b-b8fb-241e7d50a582}</Project>
+      <Name>Pjatk.Pab.Books.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
