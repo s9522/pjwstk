@@ -39,7 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Facades\BooksFacade.cs" />
+    <Compile Include="Facades\IAuthors.cs" />
     <Compile Include="Facades\IBooks.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
