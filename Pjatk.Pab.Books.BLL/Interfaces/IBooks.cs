@@ -19,7 +19,7 @@ namespace Pjatk.Pab.Books.BLL.Interfaces
         #endregion
 
         void CreateBook(Book book, string newAuthorName, string newAuthorLastName);
-        void PublishBookReedition(Book book);
+
 
     }
 }
