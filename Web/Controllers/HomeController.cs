@@ -13,18 +13,14 @@ namespace Web.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Books()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            return RedirectToAction("Index", "Books");
         }
 
-        public ActionResult Contact()
+        public ActionResult Authors()
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return RedirectToAction("Index", "Authors");
         }
     }
 }

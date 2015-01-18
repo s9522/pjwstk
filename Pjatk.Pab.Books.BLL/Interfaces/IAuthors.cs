@@ -13,6 +13,7 @@ namespace Pjatk.Pab.Books.BLL.Interfaces
         void CreateAuthor(Author author);
         void UpdateAuthor(Author author);
         void RemoveAuthor(Author author);
+        void RemoveAuthor(int id);
         IEnumerable<Author> GetAllAuthors();
         Author GetAuthorById(int id);
         #endregion

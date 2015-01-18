@@ -12,6 +12,7 @@ namespace Pjatk.Pab.Books.BLL.Interfaces
         #region simple CRUD operations
         void UpdateBook(Book book);
         void RemoveBook(Book book);
+        void RemoveBook(int id);
         Book GetBookById(int id);
         Book GetBookByIsbn(string isbn);
         void CreateBook(Book book);

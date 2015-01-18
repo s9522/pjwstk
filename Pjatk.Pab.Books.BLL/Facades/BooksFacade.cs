@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Pjatk.Pab.Books.Domain.Models;
 namespace Pjatk.Pab.Books.BLL.Facades
 {
-    public class BooksFacade : IBooks, IAuthors
+    public class BooksFacade : IBooks
     {
         private IUnitOfWork _unitOfWork;
 
@@ -26,6 +26,13 @@ namespace Pjatk.Pab.Books.BLL.Facades
 
         public void RemoveBook(Book book)
         {
+            _unitOfWork.BookRepository.Delete(book);
+            _unitOfWork.Save();
+        }
+
+        public void RemoveBook(int id)
+        {
+            Book book = _unitOfWork.BookRepository.FindById(id);
             _unitOfWork.BookRepository.Delete(book);
             _unitOfWork.Save();
         }
@@ -58,34 +65,6 @@ namespace Pjatk.Pab.Books.BLL.Facades
             book.Authors.Add(a);
             _unitOfWork.Save();
         }
-
-        #endregion
-        #region IAuthors members
-        public void CreateAuthor(Author author)
-        {
-            _unitOfWork.AuthorRepository.Add(author);
-        }
-
-        public void UpdateAuthor(Author author)
-        {
-            _unitOfWork.AuthorRepository.Update(author);
-        }
-
-        public void RemoveAuthor(Author author)
-        {
-            _unitOfWork.AuthorRepository.Delete(author);
-        }
-
-        public IEnumerable<Author> GetAllAuthors()
-        {
-            return _unitOfWork.AuthorRepository.FindAll();
-        }
-
-        public Author GetAuthorById(int id)
-        {
-            return _unitOfWork.AuthorRepository.FindById(id);
-        }
-
         #endregion
     }
 }
