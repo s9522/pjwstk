@@ -22,6 +22,9 @@ namespace Pjatk.Pab.Books.Domain.Models
         public DateTime PublishDate { get; set; }
         [Required, Range(1, 10000)]
         public int PagesCount { get; set; }
+        [Required, Range(1, 100)]
+        public int EditionNumber { get; set; }
+        [Required]
         public IList<Author> Authors { get; set; }
     }
 }

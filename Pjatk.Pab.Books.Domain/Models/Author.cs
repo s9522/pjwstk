@@ -15,7 +15,6 @@ namespace Pjatk.Pab.Books.Domain.Models
         public string FirstName { get; set; }
         [Required, StringLength(50)]
         public string LastName { get; set; }
-        [Required]
         public DateTime DateOfBirth { get; set; }
         public IList<Book> Books { get; set; }
 
