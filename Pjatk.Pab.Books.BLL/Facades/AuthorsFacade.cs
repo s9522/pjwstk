@@ -1,4 +1,5 @@
-﻿using Pjatk.Pab.Books.DAL.Repositories;
+﻿using Pjatk.Pab.Books.BLL.Interfaces;
+using Pjatk.Pab.Books.DAL.Repositories;
 using Pjatk.Pab.Books.Domain.Models;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Pjatk.Pab.Books.BLL.Facades
 {
-    public class AuthorsFacade
+    public class AuthorsFacade : IAuthors
     {
         private IUnitOfWork _unitOfWork;
 
@@ -17,10 +18,6 @@ namespace Pjatk.Pab.Books.BLL.Facades
             _unitOfWork = unitOfWork;
         }
 
-        public AuthorsFacade(IUnitOfWork unitOfWork)
-        {
-            _unitOfWork = unitOfWork;
-        }
 
         #region IAuthors members
         public void CreateAuthor(Author author)
