@@ -35,6 +35,6 @@ namespace Pjatk.Pab.Books.Domain.Models
         public int EditionNumber { get; set; }
         [Required(ErrorMessage = "Pole wymagane")]
         [DisplayName("Autorzy")]
-        public IList<Author> Authors { get; set; }
+        public virtual IList<Author> Authors { get; set; }
     }
 }

@@ -22,7 +22,7 @@ namespace Pjatk.Pab.Books.Domain.Models
         [DisplayName("Data urodzenia")]
         public DateTime DateOfBirth { get; set; }
         [DisplayName("Książki")]
-        public IList<Book> Books { get; set; }
+        public virtual IList<Book> Books { get; set; }
 
     }
 }

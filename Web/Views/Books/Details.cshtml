@@ -66,8 +66,24 @@
             @Html.DisplayFor(model => model.EditionNumber)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Authors)
+        </dt>
+
+        <dd>
+            @if (Model.Authors != null)
+            {
+                foreach (var a in Model.Authors)
+                {
+                    <span>@a.FirstName @a.LastName</span>
+                }
+                @Html.DisplayFor(model => model.Authors)
+            }
+        </dd>
+
     </dl>
 </div>
+
 <p>
     @Html.ActionLink("Edycja", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Powrót", "Index")
