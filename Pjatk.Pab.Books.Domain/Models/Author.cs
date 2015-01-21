@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -9,13 +10,18 @@ namespace Pjatk.Pab.Books.Domain.Models
 {
     public class Author
     {
-        [Required]
+        [Required(ErrorMessage = "Pole wymagane")]
+        [DisplayName("Identyfikator")]
         public int Id { get; set; }
-        [Required, StringLength(50)]
+        [DisplayName("Imię")]
+        [Required(ErrorMessage = "Pole wymagane"), StringLength(50, ErrorMessage = "Nieprawidłowa ilość znaków")]
         public string FirstName { get; set; }
-        [Required, StringLength(50)]
+        [Required(ErrorMessage = "Pole wymagane"), StringLength(50, ErrorMessage = "Nieprawidłowa ilość znaków")]
+        [DisplayName("Nazwisko")]
         public string LastName { get; set; }
+        [DisplayName("Data urodzenia")]
         public DateTime DateOfBirth { get; set; }
+        [DisplayName("Książki")]
         public IList<Book> Books { get; set; }
 
     }

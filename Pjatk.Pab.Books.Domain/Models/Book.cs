@@ -4,27 +4,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 namespace Pjatk.Pab.Books.Domain.Models
 {
     public class Book
     {
-        [Required]
+        [Required(ErrorMessage="Pole wymagane")]
+        [DisplayName("Identyfikator")]
         public int Id { get; set; }
-        [StringLength(100), Required] 
+        [StringLength(100, ErrorMessage="Nieprawidłowa ilość znaków"), Required(ErrorMessage = "Pole wymagane")]
+        [DisplayName("Tytuł")]
         public string Title { get; set; }
-        [StringLength(100)]
+        [DisplayName("Podtytuł")]
+        [StringLength(100, ErrorMessage = "Nieprawidłowa ilość znaków")]
         public string Subtitle { get; set; }
-        [Required, StringLength(20)]
+        [Required(ErrorMessage = "Pole wymagane"), StringLength(20, ErrorMessage = "Nieprawidłowa ilość znaków")]
+        [DisplayName("ISBN")]
         public string Isbn { get; set; }
-        [Required, StringLength(100)]
+        [DisplayName("Wydawnictwo")]
+        [Required(ErrorMessage = "Pole wymagane"), StringLength(100, ErrorMessage = "Nieprawidłowa ilość znaków")]
         public string Publisher { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Pole wymagane")]
+        [DisplayName("Data wydania")]
         public DateTime PublishDate { get; set; }
-        [Required, Range(1, 10000)]
+        [Required(ErrorMessage = "Pole wymagane"), Range(1, 10000, ErrorMessage="Podaj wartość 1 do 10000")]
+        [DisplayName("Ilość stron")]
         public int PagesCount { get; set; }
-        [Required, Range(1, 100)]
+        [Required(ErrorMessage = "Pole wymagane"), Range(1, 100, ErrorMessage="Podaj wartość od do 100")]
+        [DisplayName("Numer edycji")]
         public int EditionNumber { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Pole wymagane")]
+        [DisplayName("Autorzy")]
         public IList<Author> Authors { get; set; }
     }
 }

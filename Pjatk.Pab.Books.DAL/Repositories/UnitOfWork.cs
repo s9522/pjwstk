@@ -11,14 +11,12 @@ namespace Pjatk.Pab.Books.DAL.Repositories
     public class UnitOfWork : IUnitOfWork
     {
         private DomainContext _context;
-        private IRepository<Book> _bookRepository;
-        private IRepository<Author> _authorRepository;
+        private Repository<Book> _bookRepository;
+        private Repository<Author> _authorRepository;
 
-        public UnitOfWork(DomainContext context, IRepository<Book> booksRepo, IRepository<Author> authorsRepo)
+        public UnitOfWork()
         {
-            _context = context;
-            _bookRepository = booksRepo;
-            _authorRepository = authorsRepo;
+            _context = new DomainContext();
         }
 
         public void Dispose()
@@ -43,6 +41,10 @@ namespace Pjatk.Pab.Books.DAL.Repositories
         {
             get
             {
+                if (this._bookRepository==null)
+                {
+                    this._bookRepository = new Repository<Book>(this._context);
+                }
                 return this._bookRepository;
             }
         }
@@ -51,7 +53,11 @@ namespace Pjatk.Pab.Books.DAL.Repositories
         {
             get
             {
-                return this._authorRepository;
+                if (this._authorRepository==null)
+                {
+                    this._authorRepository = new Repository<Author>(this._context);
+                }
+                return this._authorRepository;                
             }
         }
 

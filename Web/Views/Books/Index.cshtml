@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<Pjatk.Pab.Books.Domain.Models.Book>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Lista książek";
 }
 
-<h2>Index</h2>
+<h2>Lista książek</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Dodaj nową", "Create")
 </p>
 <table class="table">
     <tr>
@@ -59,9 +59,9 @@
             @Html.DisplayFor(modelItem => item.EditionNumber)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Edycja", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Szczegóły", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Usuń", "Delete", new { id=item.Id })
         </td>
     </tr>
 }
