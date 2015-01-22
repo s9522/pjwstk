@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 namespace Pjatk.Pab.Books.Domain.Models
 {
     public class Book
     {
-        [Required(ErrorMessage="Pole wymagane")]
         [DisplayName("Identyfikator")]
         public int Id { get; set; }
         [StringLength(100, ErrorMessage="Nieprawidłowa ilość znaków"), Required(ErrorMessage = "Pole wymagane")]
@@ -33,7 +33,6 @@ namespace Pjatk.Pab.Books.Domain.Models
         [Required(ErrorMessage = "Pole wymagane"), Range(1, 100, ErrorMessage="Podaj wartość od do 100")]
         [DisplayName("Numer edycji")]
         public int EditionNumber { get; set; }
-        [Required(ErrorMessage = "Pole wymagane")]
         [DisplayName("Autorzy")]
         public virtual IList<Author> Authors { get; set; }
     }

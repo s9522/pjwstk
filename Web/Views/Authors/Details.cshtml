@@ -34,6 +34,21 @@
             @Html.DisplayFor(model => model.DateOfBirth)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Books)
+        </dt>
+
+        <dd>
+            <table>
+            @foreach (var item in Model.Books)
+            {
+                <tr><td>@item.Title @item.Subtitle</td></tr>
+            }
+            </table>
+        </dd>
+
+
+
     </dl>
 </div>
 <p>

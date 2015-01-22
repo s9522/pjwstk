@@ -73,11 +73,12 @@
         <dd>
             @if (Model.Authors != null)
             {
-                foreach (var a in Model.Authors)
-                {
-                    <span>@a.FirstName @a.LastName</span>
-                }
-                @Html.DisplayFor(model => model.Authors)
+                <table>
+                    @foreach (var a in Model.Authors)
+                    {
+                    <tr><td>@a.FirstName @a.LastName</td></tr>
+                    }
+                </table>
             }
         </dd>
 

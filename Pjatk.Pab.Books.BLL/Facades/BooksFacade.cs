@@ -50,6 +50,10 @@ namespace Pjatk.Pab.Books.BLL.Facades
         public void CreateBook(Book book)
         {
             _unitOfWork.BookRepository.Add(book);
+            foreach (var item in book.Authors)
+            {
+                item.Books.Add(book);
+            }
             _unitOfWork.Save();
         }
 

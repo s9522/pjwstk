@@ -15,10 +15,12 @@ namespace Web.Controllers
     public class BooksController : Controller
     {
         IBooks _booksFacade;
+        IAuthors _authorsFacade;
 
-        public BooksController(IBooks booksFacade)
+        public BooksController(IBooks booksFacade, IAuthors authorsFacade)
         {
             _booksFacade = booksFacade;
+            _authorsFacade = authorsFacade;
         }
 
         // GET: Books
@@ -45,20 +47,31 @@ namespace Web.Controllers
         // GET: Books/Create
         public ActionResult Create()
         {
+            ViewData["authors"] = _authorsFacade.GetAllAuthors().ToList();
             return View();
         }
 
         // POST: Books/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Subtitle,Isbn,Publisher,PublishDate,PagesCount,EditionNumber")] Book book)
+        public ActionResult Create([Bind(Include = "Id,Title,Subtitle,Isbn,Publisher,PublishDate,PagesCount,EditionNumber")] Book book, string[] authorsIds)
         {
             if (ModelState.IsValid)
             {
+                if (authorsIds!=null)
+                {
+                    book.Authors = new List<Author>();
+                    foreach (var item in authorsIds)
+                    {
+                        var author = _authorsFacade.GetAuthorById(int.Parse(item));
+                        book.Authors.Add(author);
+                    }
+                }
                 _booksFacade.CreateBook(book);
+                
                 return RedirectToAction("Index");
             }
-
+            ViewData["authors"] = _authorsFacade.GetAllAuthors().ToList();
             return View(book);
         }
 
