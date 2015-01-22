@@ -62,13 +62,6 @@ namespace Pjatk.Pab.Books.BLL.Facades
             return _unitOfWork.BookRepository.FindAll();
         }
 
-        public void CreateBook(Book book, string newAuthorName, string newAuthorLastName)
-        {
-            Author a = new Author { FirstName = newAuthorName, LastName = newAuthorLastName };
-            _unitOfWork.AuthorRepository.Add(a);
-            book.Authors.Add(a);
-            _unitOfWork.Save();
-        }
         #endregion
     }
 }

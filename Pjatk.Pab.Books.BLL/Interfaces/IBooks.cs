@@ -19,7 +19,6 @@ namespace Pjatk.Pab.Books.BLL.Interfaces
         IEnumerable<Book> GetAllBooks();
         #endregion
 
-        void CreateBook(Book book, string newAuthorName, string newAuthorLastName);
 
 
     }
