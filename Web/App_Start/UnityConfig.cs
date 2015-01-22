@@ -13,10 +13,6 @@ namespace Web
         {
 			var container = new UnityContainer();
             container.LoadConfiguration();
-
-            //container.RegisterType<IAuthors, AuthorsFacade>();
-            // e.g. container.RegisterType<ITestService, TestService>();
-            
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }
