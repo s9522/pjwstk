@@ -20,9 +20,12 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Strona główna", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Książki", "Index", "Books")</li>
-                    <li>@Html.ActionLink("Autorzy", "Index", "Authors")</li>
-                </ul>
+                    @if (ViewContext.HttpContext.User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Książki", "Index", "Books")</li>
+                        <li>@Html.ActionLink("Autorzy", "Index", "Authors")</li>
+                        <li>@using (Html.BeginForm("LogOff", "Home", FormMethod.Post, new { id = "logOffForm" })){@Html.AntiForgeryToken()}<a href="javascript:$('#logOffForm').submit()">Wyloguj</a></li>
+                    }</ul>
             </div>
         </div>
     </div>
