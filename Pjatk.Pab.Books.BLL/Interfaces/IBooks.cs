@@ -1,9 +1,5 @@
-﻿using Pjatk.Pab.Books.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using Pjatk.Pab.Books.Domain.Models;
 
 namespace Pjatk.Pab.Books.BLL.Interfaces
 {

@@ -2,8 +2,6 @@ using System.Web.Mvc;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
 using Unity.Mvc5;
-using Pjatk.Pab.Books.BLL.Interfaces;
-using Pjatk.Pab.Books.BLL.Facades;
 
 namespace Web
 {

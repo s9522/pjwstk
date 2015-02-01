@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using Pjatk.Pab.Books.Domain.Models;
 using Pjatk.Pab.Books.BLL.Interfaces;
-
+using Pjatk.Pab.Books.Domain.Models;
 
 namespace Web.Controllers
 {

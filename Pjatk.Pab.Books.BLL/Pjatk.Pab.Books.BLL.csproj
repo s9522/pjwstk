@@ -39,10 +39,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Facades\BookRentals.cs" />
+    <Compile Include="Facades\ReadersFacade.cs" />
     <Compile Include="Facades\AuthorsFacade.cs" />
     <Compile Include="Facades\BooksFacade.cs" />
     <Compile Include="Interfaces\IAuthors.cs" />
+    <Compile Include="Interfaces\IBookRentals.cs" />
     <Compile Include="Interfaces\IBooks.cs" />
+    <Compile Include="Interfaces\IReaders.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

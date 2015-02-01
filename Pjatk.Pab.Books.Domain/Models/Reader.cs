@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace Pjatk.Pab.Books.Domain.Models
 {
-    public class Author
+    public class Reader
     {
         [Required(ErrorMessage = "Pole wymagane")]
         [DisplayName("Identyfikator")]
@@ -16,10 +14,5 @@ namespace Pjatk.Pab.Books.Domain.Models
         [Required(ErrorMessage = "Pole wymagane"), StringLength(50, ErrorMessage = "Nieprawidłowa ilość znaków")]
         [DisplayName("Nazwisko")]
         public string LastName { get; set; }
-        [DisplayName("Data urodzenia")]
-        public DateTime DateOfBirth { get; set; }
-        [DisplayName("Książki")]
-        public virtual IList<Book> Books { get; set; }
-
     }
 }

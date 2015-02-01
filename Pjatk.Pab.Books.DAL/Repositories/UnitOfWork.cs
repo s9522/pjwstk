@@ -1,10 +1,5 @@
-﻿using Pjatk.Pab.Books.DAL.Repositories;
+﻿using System;
 using Pjatk.Pab.Books.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Pjatk.Pab.Books.DAL.Repositories
 {
@@ -13,6 +8,8 @@ namespace Pjatk.Pab.Books.DAL.Repositories
         private DomainContext _context;
         private Repository<Book> _bookRepository;
         private Repository<Author> _authorRepository;
+        private Repository<BookRental> _bookRentalRepository;
+        private Repository<Reader> _readerRepository;
 
         public UnitOfWork()
         {
@@ -58,6 +55,30 @@ namespace Pjatk.Pab.Books.DAL.Repositories
                     this._authorRepository = new Repository<Author>(this._context);
                 }
                 return this._authorRepository;                
+            }
+        }
+
+        public IRepository<Reader> ReaderRepository
+        {
+            get
+            {
+                if (this._readerRepository == null)
+                {
+                    this._readerRepository = new Repository<Reader>(this._context);
+                }
+                return this._readerRepository;
+            }
+        }
+
+        public IRepository<BookRental> BookRentalRepository
+        {
+            get
+            {
+                if (this._bookRentalRepository == null)
+                {
+                    this._bookRentalRepository = new Repository<BookRental>(this._context);
+                }
+                return this._bookRentalRepository;
             }
         }
 

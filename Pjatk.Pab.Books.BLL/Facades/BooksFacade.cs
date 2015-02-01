@@ -1,16 +1,14 @@
-﻿using Pjatk.Pab.Books.BLL.Interfaces;
-using Pjatk.Pab.Books.DAL.Repositories;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Pjatk.Pab.Books.BLL.Interfaces;
+using Pjatk.Pab.Books.DAL.Repositories;
 using Pjatk.Pab.Books.Domain.Models;
+
 namespace Pjatk.Pab.Books.BLL.Facades
 {
     public class BooksFacade : IBooks
     {
-        private IUnitOfWork _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
 
         public BooksFacade(IUnitOfWork unitOfWork)
         {
