@@ -145,8 +145,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="Controllers\AuthorsController.cs" />
+    <Compile Include="Controllers\BookRentalsController.cs" />
     <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ReadersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -204,6 +206,16 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Views\Home\LogOn.cshtml" />
+    <Content Include="Views\Readers\Create.cshtml" />
+    <Content Include="Views\Readers\Delete.cshtml" />
+    <Content Include="Views\Readers\Details.cshtml" />
+    <Content Include="Views\Readers\Edit.cshtml" />
+    <Content Include="Views\Readers\Index.cshtml" />
+    <Content Include="Views\BookRentals\Create.cshtml" />
+    <Content Include="Views\BookRentals\Delete.cshtml" />
+    <Content Include="Views\BookRentals\Details.cshtml" />
+    <Content Include="Views\BookRentals\Edit.cshtml" />
+    <Content Include="Views\BookRentals\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

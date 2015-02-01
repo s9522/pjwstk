@@ -1,5 +1,5 @@
 ﻿@using Pjatk.Pab.Books.Domain.Models
-@model Book
+@model Pjatk.Pab.Books.Domain.Models.Book
 
 @{
     ViewBag.Title = "Dodaj książkę";
@@ -87,7 +87,6 @@
                         }
                     }
                 </select>
-                @Html.ValidationMessageFor(model => model.EditionNumber)
             </div>
         </div>
 

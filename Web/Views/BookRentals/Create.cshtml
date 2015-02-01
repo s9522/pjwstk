@@ -1,0 +1,81 @@
+﻿@using Pjatk.Pab.Books.Domain.Models
+@model Pjatk.Pab.Books.Domain.Models.BookRental
+
+@{
+    ViewBag.Title = "Dodaj";
+}
+
+<h2>Dodaj</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Wyypożyczenie</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            @Html.LabelFor(model => model.Reader, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select id="readerId" multiple name="readerId">
+
+                    @{var readers = ViewData["readers"] as IEnumerable<Reader>;}
+                    @if (readers != null)
+                    {
+                        foreach (var item in readers)
+                        {
+                            <option value="@item.Id">@item.FirstName @item.LastName</option>
+                        }
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.DateFrom, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DateFrom)
+                @Html.ValidationMessageFor(model => model.DateFrom)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DateTo, htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DateTo)
+                @Html.ValidationMessageFor(model => model.DateTo)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Books, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select id="booksIds" multiple name="booksIds">
+
+                    @{
+    var enumerable = ViewData["books"] as IEnumerable<Book>;
+                    }
+                    @if (enumerable != null)
+                    {
+                        foreach (var item in enumerable)
+                        {
+                            <option value="@item.Id">@item.Title @item.Subtitle</option>
+                        }
+                    }
+                </select>
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Dodaj" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Wróć", "Index")
+</div>

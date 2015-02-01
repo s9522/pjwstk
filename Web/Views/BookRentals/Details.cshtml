@@ -1,0 +1,55 @@
+﻿@model Pjatk.Pab.Books.Domain.Models.BookRental
+
+@{
+    ViewBag.Title = "Szczegóły";
+}
+
+<h2>Szczegóły</h2>
+
+<div>
+    <h4>Wypożyczenie</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Reader)
+        </dt>
+        <dd>
+            @Model.Reader.FirstName @Model.Reader.LastName
+        <dd>
+           
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DateFrom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateFrom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateTo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateTo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Books)
+        </dt>
+
+        <dd>
+            <table>
+                @foreach (var book in Model.Books)
+                {
+                    <tr><td>@book.Title @book.Subtitle</td></tr>
+                }
+            </table>
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edytuj", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Wróć", "Index")
+</p>

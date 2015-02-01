@@ -23,11 +23,20 @@ namespace Pjatk.Pab.Books.DAL
                     EditionNumber = i,
                     Authors = new List<Author> {a}
                 };
-                a.Books = new List<Book>();
-                a.Books.Add(b);
+                a.Books = new List<Book> {b};
 
                 context.Authors.Add(a);
                 context.Books.Add(b);
+                Reader r = new Reader {FirstName = "Czytelnik", LastName = "nr " + i};
+                context.Readers.Add(r);
+                BookRental br = new BookRental
+                {
+                    Books = new List<Book>{b},
+                    Reader = r,
+                    DateFrom = new DateTime(2015, 1, i),
+                    DateTo = new DateTime(2015, 2, i)
+                };
+                context.BookRentals.Add(br);
                 context.SaveChanges();
             }
         }

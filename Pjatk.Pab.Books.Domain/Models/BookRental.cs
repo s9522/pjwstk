@@ -12,10 +12,10 @@ namespace Pjatk.Pab.Books.Domain.Models
         public int Id { get; set; }
         [Required(ErrorMessage = "Pole wymagane")]
         [DisplayName("Czytelnik")]
-        public Reader Reader { get; set; }
+        public virtual Reader Reader { get; set; }
         [Required(ErrorMessage = "Pole wymagane")]
         [DisplayName("Książki")]
-        public IList<Book> Books { get; set; }
+        public virtual IList<Book> Books { get; set; }
         [DisplayName("Data wypożyczenia")]
         public DateTime DateFrom { get; set; }
         [DisplayName("Data oddania")]
