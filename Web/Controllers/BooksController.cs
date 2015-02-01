@@ -9,8 +9,8 @@ namespace Web.Controllers
 {
     public class BooksController : Controller
     {
-        IBooks _booksFacade;
-        IAuthors _authorsFacade;
+        readonly IBooks _booksFacade;
+        readonly IAuthors _authorsFacade;
 
         public BooksController(IBooks booksFacade, IAuthors authorsFacade)
         {

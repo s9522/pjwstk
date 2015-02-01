@@ -14,7 +14,7 @@ namespace Pjatk.Pab.Books.DAL.Repositories
         public Repository(DomainContext context)
         {
             this.context = context;
-            this.dbSet = context.Set<T>();
+            dbSet = context.Set<T>();
         }
 
         public virtual IEnumerable<T> Find(
@@ -29,11 +29,7 @@ namespace Pjatk.Pab.Books.DAL.Repositories
                 query = query.Where(filter);
             }
 
-            foreach (var includeProperty in includeProperties.Split
-                (new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
-            {
-                query = query.Include(includeProperty);
-            }
+            query = includeProperties.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries).Aggregate(query, (current, includeProperty) => current.Include(includeProperty));
 
             if (orderBy != null)
             {

@@ -11,7 +11,7 @@ namespace Pjatk.Pab.Books.DAL.Repositories
         void Delete(T entity);
         void Update(T entity);
         IEnumerable<T> FindAll();
-        T FindById(int Id);
+        T FindById(int id);
         IEnumerable<T> Find(
             Expression<Func<T, bool>> filter = null,
             Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,

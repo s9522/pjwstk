@@ -12,9 +12,17 @@ namespace Pjatk.Pab.Books.DAL
             for (int i = 1; i <= 25; i++)
             {
                 Author a = new Author { DateOfBirth = DateTime.Today, FirstName = "Imię"+i, LastName = "Nazwisko" +i };
-                Book b = new Book { Isbn = "0-306-406" + i.ToString(), PagesCount = 100+i, PublishDate = DateTime.Today, Publisher = "Wydawnictwo "+i, Title = "Tytuł " + i, Subtitle = "Podtytuł" + i, EditionNumber = i };
-                b.Authors = new List<Author>();
-                b.Authors.Add(a);
+                Book b = new Book
+                {
+                    Isbn = "0-306-406" + i.ToString(),
+                    PagesCount = 100 + i,
+                    PublishDate = DateTime.Today,
+                    Publisher = "Wydawnictwo " + i,
+                    Title = "Tytuł " + i,
+                    Subtitle = "Podtytuł" + i,
+                    EditionNumber = i,
+                    Authors = new List<Author> {a}
+                };
                 a.Books = new List<Book>();
                 a.Books.Add(b);
 

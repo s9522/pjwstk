@@ -7,7 +7,7 @@ namespace Web.Controllers
 {
     public class AuthorsController : Controller
     {
-        IAuthors _authorsFacade;
+        readonly IAuthors _authorsFacade;
 
         public AuthorsController(IAuthors authorsFacade)
         {
